@@ -12,16 +12,11 @@ let mix = require('laravel-mix');
  */
 
 mix.setPublicPath('public')
-   //.js('resources/assets/js/theme.js', 'public/js')
-   //.js('resources/assets/js/admin.js', 'public/js')
-   //.js('resources/assets/js/customizer.js', 'public/js')
-   //.sass('resources/assets/sass/theme.scss', 'public/css')
-   //.minify('public/css/theme.css')
-   //.minify('public/js/theme.js')
-   //.copy('resources/assets/img', 'public/img')
-   //.sass('resources/assets/sass/admin.scss', 'public/css')
-   //.minify('public/css/admin.css')
-   //.minify('public/js/admin.js');
+   .js('resources/assets/js/theme.js', 'public/js')
+   .minify('public/js/theme.js')
+   .sass('resources/assets/sass/theme.scss', 'public/css')
+   .minify('public/css/theme.css')
+   .copy('resources/assets/img', 'public/img')
 
 mix.options({
     postCss: [
