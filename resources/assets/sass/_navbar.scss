@@ -1,0 +1,251 @@
+$navbar-background-color: get-color('grey', 'darken-4') !default;
+
+%navbar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap; // allow us to do the line break for collapsing content
+    align-items: center;
+    justify-content: space-between; // space out brand from logo
+    padding: .5rem 1rem;
+    background-color: $navbar-background-color;
+    transition: background-color .5s, top .5s;
+
+    @include media-up("lg") {
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        //background-color: transparent;
+    }
+}
+
+%navbar-container {
+    @extend %container;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+
+    @include media-up("lg") {
+        flex-wrap: nowrap;
+    }
+}
+
+%navbar-brand {
+    display: inline-block;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    line-height: inherit;
+    white-space: nowrap;
+    color: white;
+
+    &:hover,
+    &:focus {
+        color: white;
+        text-decoration: none;
+    }
+
+    @include media-up("lg") {
+      
+    }
+}
+
+// Button for toggling the navbar when in its collapsed state
+%navbar-toggler {
+    padding: 0.25rem 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    color: white;
+    background-color: transparent; // remove default button style
+    border: 1px solid transparent; // remove default button style
+    border-radius: .25rem;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+
+    // Opinionated: add "hand" cursor to non-disabled .navbar-toggler elements
+    &:not(:disabled):not(.disabled) {
+        cursor: pointer;
+    }
+
+    @include media-up("lg") {
+        display: none;
+    }
+}
+
+%navbar-collapse {
+    flex-basis: 100%;
+    flex-grow: 1;
+    // For always expanded or extra full navbars, ensure content aligns itself
+    // properly vertically. Can be easily overridden with flex utilities.
+    align-items: center;
+
+    @include media-up("lg") {
+        display: flex;
+        flex-basis: auto;
+    }
+}
+
+%navbar-nav {
+    display: flex;
+    flex-direction: column; // cannot use `inherit` to get the `.navbar`s value
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+
+    .show > .nav-link,
+    .active > .nav-link,
+    .nav-link.show,
+    .nav-link.active {
+        color: white;
+    }
+
+    @include media-up("lg") {
+        flex-direction: row;
+    }
+}
+
+%navbar-nav-link {
+    display: block;
+    padding: .5rem;
+    color: white;
+
+    &:hover,
+    &:focus {
+        color: white;
+        text-decoration: none;
+    }
+
+    &.disabled {
+        color: rgba(white, .4);
+    }
+
+    @include media-up("lg") {
+        padding: 0 .5rem;
+    }
+}
+
+%navbar-dropdown-menu {
+    position: static;
+    float: none;
+
+    @include media-up("lg") {
+        position: absolute;
+    }
+}
+
+%fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+}
+
+%navbar-transparent-bg {
+    &.add-color {
+        background-color: $navbar-background-color;
+	}
+}
+
+%show-on-scroll-up {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+    
+    &.hide-nav {
+        top: -5rem;
+    }
+}
+
+//
+// Animations
+//
+
+%no-anim {
+    display: none;
+}
+
+%no-anim-show {
+    display: block;
+}
+
+// adapted from http://jsfiddle.net/3Fc7D/3054/
+%collapse {
+    max-height: 0;
+    transition: max-height .5s ease-out;
+    overflow: hidden;
+
+    @include media-up("lg") {
+        max-height: inherit;
+    }
+}
+
+%collapse-show {
+    max-height: 500px;
+    transition: max-height .5s ease-in;
+}
+
+// adapted from fade-in: https://codepen.io/shshaw/pen/gsFch
+%fade-in {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-2em);
+    z-index: -1;
+    padding: .5rem 1rem;
+    transition: 
+        all 0.3s ease-in-out 0s, 
+        visibility 0s linear 0.3s, 
+        z-index 0s linear 0.01s;
+    
+    @include media-up("lg") {
+        visibility: visible;
+        opacity: 1;
+        position: static;
+        width: inherit;
+        transform: none;
+        z-index: 1;
+        padding: 0;
+    }
+}
+
+%fade-in-show {
+    visibility: visible;
+    opacity: 1;
+    z-index: 1;
+    transform: translateY(0%);
+    // this removes the transition delay so the menu will be visible while the other styles transition
+    transition-delay: 0s, 0s, 0.3s; 
+}
+
+// adapted from slide to left: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sidenav
+%slide-to-left {
+    height: 100vh;
+    width: 0;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    right: -2rem;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding: 1rem;
+
+    @include media-up("lg") {
+        height: inherit;
+        width: inherit;
+        position: inherit;
+        padding: 0;
+    }
+}
+
+%slide-to-left-show {
+    width: 90vw;
+    right: 0;
+}
