@@ -1,1 +1,1 @@
-Test world
+@extends('layouts.default')
