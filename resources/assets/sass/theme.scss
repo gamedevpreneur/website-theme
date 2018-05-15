@@ -1,25 +1,15 @@
 @import "variables";
 @import "cleanup";
+
 @import "colors";
 @import "layout";
 @import "navbar";
 @import "button";
 
-#wpadminbar {
-    display: none;
-}
-
-.header {
-    height: 100vh;
-    
-    @include media-up("lg") {
-        height: 75vh;
-    }
-}
+@import "pages/front-page";
 
 .topnav {
 	@extend %navbar;
-	@extend %show-on-scroll-up;
 }
 
 .topnav-container {
@@ -28,6 +18,7 @@
 
 .topnav-brand {
 	@extend %navbar-brand;
+	font-weight: 700;
 }
 
 .topnav-collapse {
@@ -68,49 +59,4 @@
 
 .topnav-dropdown {
 	@extend %navbar-dropdown-menu;
-}
-
-.hero {
-	height: 100%;
-}
-
-.hero-container {
-    @include flex-center();
-    flex-direction: column;
-    height: 100%;
-	//color: white;
-
-	.hero-message {
-        text-align: center;
-        margin-bottom: get-space(5);
-	}
-}
-
-.hero-title {
-	font-size: font-size('h1');
-	font-weight: bold;
-	margin-bottom: get-space(0);
-
-	@include media-up("md") {
-		font-size: font-size('d4');
-	}
-}
-
-.hero-hr {
-	border: 1px solid #fff;
-	@include my(3);
-}
-
-.hero-subhead {
-	padding: get-space(2) 0 get-space(3);
-}
-
-.hero-cta-btn {
-	@extend %btn-lg;
-	@extend %btn-rounded;
-	background-color: get-color("pink");
-
-	&:hover {
-		background-color: get-color("pink", "darken-4");
-	}
 }

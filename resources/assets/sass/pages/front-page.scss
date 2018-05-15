@@ -1,0 +1,69 @@
+.front-page.header {
+    height: 100vh;
+    
+    @include media-up("lg") {
+        height: 75vh;
+    }
+}
+
+.hero {
+	height: 100%;
+}
+
+.hero-container {
+    @include flex-center();
+    flex-direction: column;
+    height: 100%;
+	//color: white;
+
+	.hero-message {
+        text-align: center;
+        margin-bottom: get-space(4);
+	}
+}
+
+.hero-title {
+	font-size: font-size('h1');
+	font-weight: bold;
+	margin-bottom: get-space(2);
+
+	@include media-up("md") {
+		font-size: font-size('d4');
+	}
+}
+
+.hero-hr {
+	border: 1px solid #fff;
+	@include my(3);
+}
+
+.hero-cta-btn {
+	@extend %btn-lg;
+	@extend %btn-rounded;
+	background-color: get-color("pink");
+
+	&:hover {
+		background-color: get-color("pink", "darken-4");
+	}
+}
+
+.hero-signup-form-wrap {
+	display: flex;
+	justify-content: center;
+}
+
+.main-signup-form {
+	display: flex;
+	align-items: center;
+}
+
+.form-control {
+	padding: get-space(1) get-space(3);
+	margin-right: get-space(2);
+}
+
+.btn-subscribe {
+	@extend %btn;
+
+	background-color: get-color("deep-orange");
+}
