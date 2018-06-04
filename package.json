@@ -25,6 +25,7 @@
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "browser-sync": "^2.24.4",
     "browser-sync-webpack-plugin": "^2.2.2",
     "cash-dom": "^2.1.3",
