@@ -70,3 +70,19 @@
 	padding: 1px 12px;
 	border-radius: 5px;
 }
+
+$code-bg: rgb(245, 242, 240);
+
+%inline-code {
+	background: $code-bg;
+	padding: 1px 8px;
+}
+
+.language-csharp.cs-inline {
+	@extend %inline-code;
+}
+
+.language-csharp.cs-name {
+	@extend %inline-code;
+	color: #dd4a68;
+}
