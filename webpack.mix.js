@@ -13,6 +13,7 @@ let mix = require('laravel-mix');
 
 mix.setPublicPath('public')
    .js('resources/assets/js/theme.js', 'public/js')
+   .combine(['public/js/theme.js', 'resources/assets/js/prism.js'], 'public/js/theme.js')
    .minify('public/js/theme.js')
    .sass('resources/assets/sass/theme.scss', 'public/css')
    .minify('public/css/theme.css')

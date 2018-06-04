@@ -6,6 +6,8 @@
 @import "navbar";
 @import "button";
 
+@import "prism";
+
 @import "pages/front-page";
 
 .topnav {
@@ -59,4 +61,12 @@
 
 .topnav-dropdown {
 	@extend %navbar-dropdown-menu;
+}
+
+.key {
+	background-color: #212133;
+	color: white;
+	font-weight: 700;
+	padding: 1px 12px;
+	border-radius: 5px;
 }
