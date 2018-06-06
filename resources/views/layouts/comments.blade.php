@@ -59,7 +59,6 @@ if ( post_password_required() ) {
 						'avatar_size' => 100,
 						'style'       => 'ol',
 						'short_ping'  => true,
-						'reply_text'  => twentyseventeen_get_svg( array( 'icon' => 'mail-reply' ) ) . __( 'Reply', 'twentyseventeen' ),
 					)
 				);
 			?>
@@ -68,8 +67,8 @@ if ( post_password_required() ) {
 		<?php
 		the_comments_pagination(
 			array(
-				'prev_text' => twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous', 'twentyseventeen' ) . '</span>',
-				'next_text' => '<span class="screen-reader-text">' . __( 'Next', 'twentyseventeen' ) . '</span>' . twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ),
+				'prev_text' => '<span class="screen-reader-text">' . __( 'Previous', 'twentyseventeen' ) . '</span>',
+				'next_text' => '<span class="screen-reader-text">' . __( 'Next', 'twentyseventeen' ) . '</span>',
 			)
 		);
 
@@ -83,7 +82,14 @@ if ( post_password_required() ) {
 	<?php
 	endif;
 
-	comment_form();
+	comment_form(array(
+		'fields' => array(
+			'author' => '<div class="commenter-info"> <input id="author" class="comment-author" placeholder="Your name..." name="author" type="text" size="30" maxlength="245" required="required" />',
+			'url' => '<input id="url" class="comment-url" placeholder="Your website" name="url" type="text" value="" size="30" maxlength="200" /></div>',
+			'email' => '',
+		),
+		'comment_field' => '<textarea id="comment" class="comment-content" placeholder="What\'s on your mind?" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea>',
+	));
 	?>
 
 </div><!-- #comments -->

@@ -22,23 +22,17 @@
             </div>
         </div>
     </nav>
-<header>
-<div id="primary" class="content-area">
+</header>
+<div id="app" class="content-area">
     <main id="main" class="site-main" role="main">
         <article {!! post_class() !!} id="post-@id">
-            <header class="entry-header">
-                <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-            </header>
-
-            <?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
-
             <div class="entry-content">
                 @wpposts
                     <?php the_content(); ?>
                 @endposts
             </div>
 
-            @include('layouts.comments')
+            <?php comments_template('/resources/views/layouts/comments.blade.php') ?>
         </article>
     </main>
 </div>
