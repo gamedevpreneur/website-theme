@@ -75,11 +75,13 @@ code[class*="language-"] {
     @include width();
 
     clear: both;
-    margin: 0 auto;
-	padding: 2em 0.5em 0.5em;
+    margin: 1.5rem auto 0;
+	padding: 0.5rem 0.5rem 0.5rem;
+	border-top: 1px solid #ddd;
 
 	@include media-up("md") {
-		padding: 2em 0 0.5em;
+		padding-left: 0;
+		padding-right: 0;
 	}
 }
 
@@ -155,6 +157,7 @@ code[class*="language-"] {
 .comment-reply-link {
 	font-weight: 800;
 	position: relative;
+	color: #888;
 }
 
 .comment-reply-link .icon {
