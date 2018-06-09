@@ -21,21 +21,24 @@
             </div>
         </div>
     </div>
-    <div class="entry-content">
-        <main class="posts">
-            @wpposts
-                <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                    <h2 class="entry-title"><a href="{{ esc_url( get_permalink() ) }}" rel="bookmark">{{ get_the_title() }}</a></h2>
-                    <div class="entry-summary">
-                        <?php the_excerpt(); ?>
-                    </div>
-                    <a href="{{ esc_url( get_permalink() ) }}" class="btn">Continue Reading</a>
-                </article>
-            @endposts
-            @include('layouts.pagination')
-        </main>
-        <aside class="sidebar">
-        </aside>
-    </div>
 </header>
+<div class="entry-content">
+    <div class="posts">
+        @wpposts
+            <article id="post-<?php the_ID(); ?>" <?php post_class("post-summary"); ?>>
+                <h2 class="entry-title"><a href="{{ esc_url( get_permalink() ) }}" rel="bookmark">{{ get_the_title() }}</a></h2>
+                <div class="entry-summary">
+                    <?php the_excerpt(); ?>
+                </div>
+                <a href="{{ esc_url( get_permalink() ) }}" class="btn-continue-reading">Continue Reading</a>
+            </article>
+        @endposts
+        @include('layouts.pagination')
+    </div>
+    <aside class="sidebar">
+        <div>
+            Signup box
+        </div>
+    </aside>
+</div>
 @endsection

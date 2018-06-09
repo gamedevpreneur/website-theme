@@ -10,6 +10,7 @@
 
 @import "pages/front-page";
 @import "pages/single";
+@import "pages/home";
 
 .topnav {
 	@extend %navbar;
@@ -26,7 +27,7 @@
 
 .topnav-collapse {
 	@extend %navbar-collapse;
-	@extend %slide-to-left;
+	@extend %collapse;
 	background-color: $navbar-background-color;
 
 	&.show {
