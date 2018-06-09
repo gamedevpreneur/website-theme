@@ -59,7 +59,6 @@
 .form-control {
 	padding: get-space(1) get-space(3);
 	margin-top: get-space(2);
-	width: 100%;
 
 	@include media-up("md") {
 		margin-top: 0;
