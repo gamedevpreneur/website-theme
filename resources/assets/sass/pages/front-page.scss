@@ -7,7 +7,7 @@
 }
 
 .hero {
-	height: 100%;
+	height: 100vh;
 }
 
 .hero-container {
@@ -17,8 +17,12 @@
 	//color: white;
 
 	.hero-message {
-        text-align: center;
-        margin-bottom: get-space(4);
+		text-align: center;
+		margin-bottom: get-space(2);
+
+		@include media-up("lg") {
+			margin-bottom: get-space(4);
+		}
 	}
 }
 
@@ -37,16 +41,6 @@
 	@include my(3);
 }
 
-.hero-cta-btn {
-	@extend %btn-lg;
-	@extend %btn-rounded;
-	background-color: get-color("pink");
-
-	&:hover {
-		background-color: get-color("pink", "darken-4");
-	}
-}
-
 .hero-signup-form-wrap {
 	display: flex;
 	justify-content: center;
@@ -54,16 +48,32 @@
 
 .main-signup-form {
 	display: flex;
-	align-items: center;
+	flex-direction: column;
+
+	@include media-up("md") {
+		flex-direction: row;
+		align-items: center;
+	}
 }
 
 .form-control {
 	padding: get-space(1) get-space(3);
-	margin-right: get-space(2);
+	margin-top: get-space(2);
+	width: 100%;
+
+	@include media-up("md") {
+		margin-top: 0;
+		margin-right: get-space(2);
+	}
 }
 
 .btn-subscribe {
 	@extend %btn;
-
 	background-color: get-color("deep-orange");
+
+	margin-top: get-space(2);
+
+	@include media-up("md") {
+		margin-top: 0;
+	}
 }
