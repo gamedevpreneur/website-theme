@@ -31,6 +31,9 @@
                     <?php the_excerpt(); ?>
                 </div>
                 <a href="{{ esc_url( get_permalink() ) }}" class="btn-continue-reading">Continue Reading</a>
+                <div class="comment-count-wrap">
+                    <span class="comment-count">{{ get_comments_number( get_the_ID() ) }}</span> Comments
+                </div>
             </article>
         @endposts
         @include('layouts.pagination')
